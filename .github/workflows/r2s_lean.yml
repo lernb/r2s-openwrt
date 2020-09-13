@@ -1,4 +1,4 @@
-name: r2s_Lean_openwrt
+name: r2s_Lean_openwrt_pass
 
 on:
   push:
