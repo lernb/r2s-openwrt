@@ -1,4 +1,4 @@
-name: r2s_Lean_openwrt_pass
+name: r2s_Lean_openwrt
 
 on:
   push:
@@ -66,6 +66,12 @@ jobs:
           mv ../../scripts/autoupdate.sh package/base-files/files/root/au.sh && chmod +x package/base-files/files/root/au.sh
           echo -e '\nLERNB Build\n' >> package/base-files/files/etc/banner
 
+      - name: Add Passwall
+        run: add_passwall.sh
+      
+      - name: Add Openclash
+        run: add_openclash.sh
+      
       - name: Build FriendlyWrt
         run: . 4_build_image.sh friendlywrt-rk3328 nanopi_r2s.mk
 
