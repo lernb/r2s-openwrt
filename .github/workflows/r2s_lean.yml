@@ -67,10 +67,10 @@ jobs:
           echo -e '\nLERNB Build\n' >> package/base-files/files/etc/banner
 
       - name: Add Passwall
-        run: add_passwall.sh
+        run: . add_passwall.sh
       
       - name: Add Openclash
-        run: add_openclash.sh
+        run: . add_openclash.sh
       
       - name: Build FriendlyWrt
         run: . 4_build_image.sh friendlywrt-rk3328 nanopi_r2s.mk
@@ -79,7 +79,7 @@ jobs:
         id: assemble_artifact
         run: |
           . x_assemble_artifact.sh
-          release_tag="R2S-Lean-OP-$(date +%Y-%m-%d)"
+          release_tag="R2S-Lean-PC-$(date +%Y-%m-%d)"
           echo "##[set-output name=release_tag;]$release_tag"
       - name: Create Release
         id: create_release
