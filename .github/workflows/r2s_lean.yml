@@ -65,12 +65,6 @@ jobs:
           mv ../../scripts/check_wan4.sh package/base-files/files/usr/bin && sed -i '/exit/i\/bin/sh /usr/bin/check_wan4.sh &' package/base-files/files/etc/rc.local
           mv ../../scripts/autoupdate.sh package/base-files/files/root/au.sh && chmod +x package/base-files/files/root/au.sh
           echo -e '\nLERNB Build\n' >> package/base-files/files/etc/banner
-
-      - name: Add Passwall
-        run: . add_passwall.sh
-      
-      - name: Add Openclash
-        run: . add_openclash.sh
       
       - name: Build FriendlyWrt
         run: . 4_build_image.sh friendlywrt-rk3328 nanopi_r2s.mk
